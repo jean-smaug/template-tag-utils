@@ -33,10 +33,10 @@ export function getSlots(node: Node): Record<string, HTMLElement> {
   ) as HTMLElement[];
 
   return slotElements
-    .filter(node => node.dataset?.slot)
-    .reduce((acc: Record<string, HTMLElement>, element: HTMLElement) => {
-      const slotName = element.dataset.slot as string;
+    .filter(slotElement => slotElement.dataset?.slot)
+    .reduce((acc: Record<string, HTMLElement>, slotElement: HTMLElement) => {
+      const slotName = slotElement.dataset.slot as string;
 
-      return { ...acc, [slotName]: element };
+      return { ...acc, [slotName]: slotElement };
     }, {});
 }
