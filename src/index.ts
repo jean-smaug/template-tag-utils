@@ -16,9 +16,7 @@ export function getTemplateAndParent(id: string): [Node, HTMLElement] {
 }
 
 export function getSlots(node: Node): Record<string, HTMLElement> {
-  const element = Array.from(node.childNodes).find(
-    node => node.nodeName !== "#text"
-  ) as HTMLElement;
+  const element = <HTMLTemplateElement>node;
 
   if (element.childElementCount === 0) {
     const slotName = element.dataset?.slot as string;
