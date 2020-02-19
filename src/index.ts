@@ -1,5 +1,5 @@
-export function getTemplateAndParent(id: string): [Node, HTMLElement] {
-  const templateElement = document.getElementById(id) as HTMLTemplateElement;
+export function getTemplateAndParent(selector: string): [Node, HTMLElement] {
+  const templateElement = <HTMLTemplateElement>document.querySelector(selector);
 
   if (!templateElement) {
     throw new Error("You must provide a valide selector for your template");
@@ -19,7 +19,7 @@ export function getSlots(node: Node): Record<string, HTMLElement> {
   const element = <HTMLTemplateElement>node;
 
   if (element.childElementCount === 0) {
-    const slotName = element.dataset?.slot as string;
+    const slotName = <string>element.dataset?.slot;
 
     if (!slotName) {
       return {};
@@ -28,9 +28,9 @@ export function getSlots(node: Node): Record<string, HTMLElement> {
     return { [slotName]: element };
   }
 
-  const slotElements = Array.from(
-    element.getElementsByTagName("*")
-  ) as HTMLElement[];
+  const slotElements = <HTMLElement[]>(
+    Array.from(element.getElementsByTagName("*"))
+  );
 
   return slotElements
     .filter(slotElement => slotElement.dataset?.slot)
