@@ -23,7 +23,7 @@ const slots = getSlots(clonedTemplate); // { title: h1 Element, image: img Eleme
 slots.title.textContent = "Hello";
 
 slots.image.src = "https://picsum.photos/200";
-slots.image.alt = "super description";
+slots.image.alt = "text alternatif";
 
 slot.description.textContent =
   "Mal nommer les choses, c'est ajouter au malheur du monde";
