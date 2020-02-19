@@ -17,7 +17,7 @@ In your HTML
 ```
 
 ```js
-const [clonedTemplate, parent] = getCloneAndParent({ id: "item" });
+const [clonedTemplate, parent] = getCloneAndParent("#item");
 const slots = getSlots(clonedTemplate); // { title: h1 Element, image: img Element, description: p Element }
 
 slots.title.textContent = "Hello";
